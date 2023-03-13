@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnarciso <rnarciso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 19:42:47 by rnarciso          #+#    #+#             */
-/*   Updated: 2023/03/13 17:25:34 by rnarciso         ###   ########.fr       */
+/*   Created: 2023/03/06 19:12:09 by rnarciso          #+#    #+#             */
+/*   Updated: 2023/03/13 05:43:02 by rnarciso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/libft.h"
 #include "../../headers/utils.h"
 
-//to create the separator of "1 2 3" of 1 2 3
+//checks if the str is a nbr and that it is within INT range
 
-static void	the_separator(int ac, char *av[])
+int	error_checker(char *str)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	i;
 
-	a = start_stack(ac, av);
-}
-
-int	main(int ac, char *av[])
-{
-	if (ac > 1)
+	i = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
+	while (str[i])
 	{
-		the_separator(ac, av);
+		if (!ft_isdigit(str[i++]))
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (-1);
+		}
+	}
+	if (ft_atoi(str) > INT_MAX || ft_atoi(str) < INT_MIN)
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (-1);
 	}
 	return (0);
 }

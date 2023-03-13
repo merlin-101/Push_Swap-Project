@@ -6,7 +6,7 @@
 /*   By: rnarciso <rnarciso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:37:43 by rnarciso          #+#    #+#             */
-/*   Updated: 2023/02/12 08:19:01 by rnarciso         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:04:14 by rnarciso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <limits.h>
 # include "libft.h"
 
-int	the_guardian(char *str);
+typedef struct s_stack
+{
+	long			nbr;
+	struct s_stack	*next;
+}	t_stack;
+
+int	error_checker(char *str);
 
 #endif
